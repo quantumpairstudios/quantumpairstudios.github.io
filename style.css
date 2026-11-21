@@ -1,0 +1,91 @@
+/* Quantum Pair Studios: same look as Sketch Bird (notebook paper, sketchy title, hand-drawn boxes) */
+@font-face { font-family: 'Cabin Sketch'; font-weight: 700; font-display: swap; src: url('fonts/cabin-sketch.woff2') format('woff2'); }
+@font-face { font-family: 'Rubik'; font-weight: 400 800; font-display: swap; src: url('fonts/rubik.woff2') format('woff2'); }
+
+:root {
+    --paper-bg: #faf8f3;
+    --ink-color: #1e2024;
+    --ink-muted: #575c66;
+    --accent-gold-bg: #fff3c4;
+    --line: rgba(115, 148, 185, 0.24);
+    --margin-line: rgba(218, 92, 92, 0.30);
+    --shadow-sketch: 3px 3px 0 rgba(30, 32, 36, 0.85);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink-color);
+    font: 500 17px/1.6 'Rubik', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    background-color: var(--paper-bg);
+    /* notebook page: red margin line + blue ruled lines, like the game */
+    background-image:
+        linear-gradient(to right, transparent 46px, var(--margin-line) 46px, var(--margin-line) 48px, transparent 48px),
+        repeating-linear-gradient(to bottom, transparent 0, transparent 33px, var(--line) 33px, var(--line) 34px);
+}
+
+main { max-width: 760px; margin: 0 auto; padding: 28px 16px 56px 64px; }
+
+.studio-name {
+    font-family: 'Cabin Sketch', 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.1;
+    margin: 0;
+    text-shadow: 1.5px 1.2px 0 rgba(44, 47, 54, 0.28);
+}
+.underline { height: 0; border-top: 4px solid var(--ink-color); border-radius: 4px; width: min(340px, 70%); margin: 10px 0 6px; transform: rotate(-0.6deg); }
+.tagline { color: var(--ink-muted); margin: 4px 0 28px; }
+
+.sketch-box {
+    background: rgba(255, 253, 249, 0.97);
+    border: 2.5px solid var(--ink-color);
+    border-radius: 14px 18px 13px 16px / 16px 13px 18px 14px;
+    box-shadow: var(--shadow-sketch);
+    padding: 18px 20px;
+}
+
+.game-card { display: grid; grid-template-columns: 1fr; gap: 10px; text-align: center; }
+.game-card .logo { width: min(420px, 100%); height: auto; margin: 4px auto 0; display: block; }
+.game-card p { margin: 0; color: var(--ink-muted); }
+
+.btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 6px; }
+.sketch-btn {
+    font: 700 1rem 'Rubik', sans-serif;
+    color: var(--ink-color);
+    text-decoration: none;
+    background: #fffdf9;
+    border: 2.5px solid var(--ink-color);
+    border-radius: 12px 15px 11px 14px / 14px 11px 15px 12px;
+    padding: 9px 18px;
+    box-shadow: var(--shadow-sketch);
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.15s ease;
+}
+.sketch-btn:hover { background: var(--accent-gold-bg); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 rgba(30, 32, 36, 0.9); }
+.sketch-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(30, 32, 36, 0.9); }
+.sketch-btn.primary { background: var(--accent-gold-bg); }
+.sketch-btn.soon { opacity: 0.7; pointer-events: none; }
+
+/* privacy page */
+.policy-head { text-align: center; margin-bottom: 18px; }
+.policy-head .logo { width: min(380px, 90%); height: auto; display: block; margin: 0 auto; }
+.policy-head h1 { font-family: 'Cabin Sketch', 'Rubik', sans-serif; font-size: clamp(1.6rem, 5vw, 2.2rem); margin: 6px 0 0; }
+.policy-head .updated { color: var(--ink-muted); font-size: 0.92rem; margin: 2px 0 0; }
+.section { margin-top: 16px; }
+.section h2 { font-size: 1.12rem; margin: 0 0 4px; display: flex; align-items: center; gap: 8px; }
+.section p, .section ul { margin: 4px 0 0; }
+.section ul { padding-left: 22px; }
+a { color: #1d5fbf; font-weight: 700; }
+
+footer { margin-top: 30px; text-align: center; color: var(--ink-muted); font-size: 0.95rem; }
+
+@media (max-width: 520px) {
+    body { font-size: 16px; background-image:
+        linear-gradient(to right, transparent 26px, var(--margin-line) 26px, var(--margin-line) 28px, transparent 28px),
+        repeating-linear-gradient(to bottom, transparent 0, transparent 33px, var(--line) 33px, var(--line) 34px); }
+    main { padding: 20px 14px 40px 40px; }
+    .sketch-box { padding: 14px; }
+}
